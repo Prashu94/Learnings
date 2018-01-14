@@ -1,0 +1,40 @@
+K Fibonacci
+--------------------
+1.Fibonnaci Series - (1,1,2,3,5,8,13,....)
+2.The problem definiton requires us to find the kth term for the similar series
+3.Input - (N,K)
+N- 7 length of the series
+K- Kth term of the series
+
+T(N,K) is 1 if N<=K 
+and T(N-1,K)+T(N-2,K)+...T(N-K,K) IF N>k
+
+For Example:
+
+Input:
+7 5
+
+Output:
+9
+
+1.[1,1,2,3,5,8,13]
+2.[1,1,1,1,1,5,9]
+
+Approach, just create the array in point number 2 and then add the index 1 and last index.
+
+
+Villages and Tribes Problem
+---------------------------------------------------
+
+Test Cases:
+4
+
+A..A..B...B
+..A..
+A....A
+..B..B..B..
+
+4 5
+1 0
+6 0
+0 7

@@ -1,0 +1,924 @@
+Notes:
+
+OCP Exam.
+Topic Name: 
+1.Assertions
+
+While testing and debugging if we want to validate our assumptions/hypothesis and do not want to strip the print statment, add if/else statement,runtie exceptions, we can use assertions.
+------------------------------------------
+Assertion lets to test your code during development, but get evaporated when theprogram is deployed, leaving behind no overhead or debugging code to track down and remove.
+------------------------------------------
+Program to validate that the argument was not negative:
+
+private void methodA(int numA){
+	assert(numA>=0); \\throws an assertion error
+	
+	use(numA + x);
+}
+--------------------------------------------
+Assertion are by default turned of, hence we need to turn it on during testing or development
+If the assumption/assertion turns out to be false then AssertionError is thrown, to fix the problem there and then
+--------------------------------------------
+Assertion can have either one or two expressions depending on whether using simple or really simple.
+The first expression must always result in a boolean value.
+The second expression can anyhting that can result in a value.Used to generate a string message that displays in the stack trace to give more debugging information.
+--------------------------------------------
+Legal assert statements:
+------------------------
+1.assert(x==1); // will return true if the values is as the assumed one or else false
+2.assert(b); //b is intialized to TRUE
+3.assert true;
+4.assert(x==1) :x ; // first expression is just vaidation of the assumption and seccond expression is for just string message to the output console.
+5.assert(x==1) :aReturn();
+6.assert(x==1) :new ValidAssert();
+
+Illegal assert statements:
+--------------------------
+1.assert(x=1) //do not try to assign a value into assert
+2.assert(x)	//x is not a boolean variable, expression1 should be boolean statement
+3.assert 0 	//again this is an integer variable not comparing against a varaible
+4.assert(x==1) : ;	//none of these returns a value;
+5.assert(x==1) :aReturn(); 	
+6.assert(x==1) :ValidAssert va;
+---------------------------------------------
+while running assertion enabled code
+javac -source <version> ProgramName.java
+
+running assertion enabled program at runtime with
+java -ea ProgramName
+disabling assertion while runtime
+java -da ProgramName
+---------------------------------------------
+Appropriate and inappropriate us of assertions
+-----------------------------------------------
+Inappropriate:
+--------------
+1.Don't use assertion to validate arguments to a public Method
+public void doStuff(int x){
+	assert(x>0);
+}
+Reason:
+A public method might be called from code that you don't control.
+Because public methods are part of your interface that coneects outside world, it should be guarnteed that any constraints on the arguments must be enforced by the method itself, assertions doesn;t cguarntee to be run on deployed application.
+To validate public argument methods we use exceptions.
+
+2.Don't use assertions to validate command line arguments:
+Here we should use the exception mechanism to validate the command line arguments
+
+3.Don't use assert staments that can cause side effects
+The rule is that an assert expression hsould leave the program in the same state as it was before the expression.
+
+Appropriate:
+------------
+1.Do use assertions to validate arguments to a private method.
+private doMoreStuff(int x){
+	assert(x>0);
+}
+2.Do use assertions even in public methods, to check for cases that you know are never ever supposed to happen.
+switch(x){
+	case 1: y = 3; break;
+	case 2: y=9;   break;
+	case 3: y=27; break;
+	default:	assert false; //we are never supposed to get here
+	
+}
+Reason:
+If you assume that a particular code block won't be reached, where you assert that x must be 1,2,3, that yu can assert false to cause an AssertionError to be thrown immediately if you ever reach that code.
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Handling Exception in Java:
+
+Prior to Java 1.7 handling exception was like following:
+
+try{
+	access the database code goes here
+}
+catch(SQLException e){
+	
+	handleErrorCase(e);
+}
+catch(IOException e){
+	
+	handleErrorCase(e);
+}
+
+But in Java 1.7 we can us muti catch statement to avoid duplicate cathc statements as follows:
+try{
+	//access the database and write to a file
+}
+catch(SQLException | IOException e){
+	handleException(e);
+}
+
+You cannot throw any two exceptionof the same type togehter, as t will give a compiler error.
+Rememeber that the multi-catch is for exceptions of different hierarchichal category.
+
+Compiler error when you assign a multi catch parameter inside a catch statement.
+
+Self Test:
+1.*b,f 
+2.c,d,e.
+3.*e 
+4.*e 
+5.*c,d,g 
+6.b,d,f 
+7.
+-----------------------------------------------------------------------------------------------
+String Processing,Data Formatting, Resource Bundles
+---------------------------------------------------
+
+Date,Numbers,Currencies,Loacales
+-------------------------------
+Packages Used:
+java.util.Date,
+java.util.Calendar,
+java.util.DateFormat,
+java.text.NumberFormat,
+java.util.Locale
+
+--------------------------------
+
+Tokenizer
+
+--------------------------------
+Tokenizing is the process of taking big pieces of source data, breaking them into little pieces and storing the little pieces in variables
+
+Two things are used for tokenizing:
+Tokens and Delimiters
+
+Tokens- Actual pieces of data,
+Delimiters- Expressions that seperate the tokens from each other.
+
+sources: "ab,cd5b,6x,z4"
+
+Tokens in the aboves string:(4)
+
+ab	cd5b	6x	z4
+
+Tokenizing with String.split()
+---------------------------------
+split() method takes a reges expression as its argument and returns a string array populated with tokens produced by splut process.
+
+String [] split = args[0].split(args[1]);
+
+args[0] -source string
+args[1] -delimeter
+split[] -tokenized string array.
+
+
+--------------------------------------
+Resource Bundles
+
+---------------------------------------
+I/O and NIO
+--------------------------------------
+File Navigation and I/O
+--------------------------
+file i/o,console i/o,thread i/o,
+highperformance i/o,byte-oriented i/o,
+character oriented i/o
+
+-----------------------------------------------------------------------------------------------------------
+
+My First JDBC and servlet program
+----------------------------------
+
+Difficulties I faced while doing it.
+
+While running the program i got the following error:
+The libs.CopyLibs.classpath property is not set up
+
+
+Dlibs.CopyLibs.classpath=a/path/to/org-netbeans-modules-java-j2seproject-copylibstask.jar
+
+which was fixed by setting the property as libs.CopyLibs.classpath=a/path/to/org-netbeans-modules-java-j2seproject-copylibstask.jar
+
+Servlet Class
+------------
+Lifecycle of a servlet:
+
+init()
+service()
+destroy()
+
+The basic servlet abstraction is the javax.servlet.Servlet interface contains the following:
+
+void init(Servlet config)- 
+Called once by the servlet engine once the servlet is loaded, i.e just before it is placed into service 
+
+If the init()  throws an UnavailableException, the servlet is then taken out of service.
+
+A servlet provides a way to store the config object to implement the getServletConfig() method
+
+ServletConfig getServletConfig()-REturns the servlet config object passed by the init method.
+
+void service(ServletRequest request, ServletResponse response)-
+
+Handles the request described in the request object, using the response object to return results to the requester
+
+String getServletInfo()- 
+
+REturns a String that can describe the servlet.
+void destroy()
+
+String getInitParameter()
+returns the value of initialization parmaeter with the specified name
+
+Enumeration getintParameterNames()
+Returns the enumeration of all the initialzation parameters coded of this servlet.
+
+
+Methods in the HTTP servlet class:
+
+void doGet(HttpServletRequest request,HttpServletResponse response) throws ServletException,IOException
+
+Called by the servlet engine to process
+an HTTP GET request. Input parameters,
+HTTP headers, and the input stream (if
+any) can be obtained from the request
+object, and response headers and the
+output stream from the response object.
+
+void doPost(HttpServletRequest
+request, HttpServletResponse
+response) throws
+ServletException, IOException
+Called by the servlet engine to process
+an HTTP POST request. No different
+from doGet() from the standpoint of
+obtaining parameters and input data or
+returning the response.
+
+void doPut(HttpServletRequest
+request, HttpServletResponse
+response) throws
+ServletException, IOException
+Called by the servlet engine to process
+an HTTP PUT request. The request URI
+in this case indicates the destination of
+the file being uploaded.
+
+void
+doDelete(HttpServletRequest
+request, HttpServletResponse
+response) throws
+ServletException, IOException
+Called by the servlet engine to process
+an HTTP DELETE request. The request
+URI indicates the resource to be deleted.
+
+void
+doOptions(HttpServletRequest
+request, HttpServletResponse
+response) throws
+ServletException, IOException
+
+Called by the servlet engine to process
+an HTTP OPTIONS request. Returns
+an Allow response header indicating
+the HTTP methods supported by this
+servlet. It’s unlikely that a servlet will
+need to override this method because
+the HttpServlet method already implements
+the functionality required by the
+HTTP specification
+
+void
+doTrace(HttpServletRequest
+request, HttpServletResponse
+response) throws
+ServletException, IOException
+Called by the servlet engine to process
+an HTTP TRACE request. Causes
+the request headers to be echoed as
+response headers. It’s unlikely that
+a servlet will need to override this
+method because the HttpServlet
+method already implements the
+functionality required by the HTTP
+specification.
+
+void
+service(HttpServletRequest
+request, HttpServletResponse
+response) throws
+ServletException, IOException
+An intermediate method called
+by service(Request request,
+Response response) with
+HTTP-specific request and response
+objects. This is the method that actually
+directs the request to doGet(),
+doPost(), and so forth. It shouldn’t
+be necessary to override this method.
+void service(Request request,
+Response response) throws
+ServletException, IOException
+Casts the request and response objects
+to their HTTP-specific subclasses and
+invokes the HTTP-specific service()
+method.
+
+-----------------------------------------------------------------------
+Methods in Servlet Request Class:
+
+These contains methods for:
+Finding the host name and the IP Address
+Retrieving request parameters
+Getting and setting attributes
+Getting input and output streams
+
+Object getAttribute
+(String name)
+
+Returns the request attribute with the
+specified name, or null if it doesn’t
+exist. Attributes can be those set by the
+servlet engine or those explicitly added
+with setAttribute(). The latter
+method is useful in connection with
+a RequesetDispatcher object.
+
+Enumeration
+getAttributeNames()
+
+Returns an Enumeration of the
+names of all attributes in this request.
+Returns an empty Enumeration if no
+attributes exist.
+
+String getCharacterEncoding() Returns the character encoding used by
+this request.
+
+int getContentLength() Specifies the length of the input stream,
+if any. If not known, returns -1.
+
+ServletInputStream
+getInputStream() throws
+IOException
+Returns the (binary) input stream
+associated with this request, if any.
+Either getInputStream() or
+getReader() may be called, but
+not both.
+
+String getParameter
+(String name)
+Returns the specified input parameter,
+or null, if it doesn’t exist.
+
+Enumeration
+getParameterNames()
+Returns a possibly empty
+Enumeration of the names
+of all parameters in this request.
+
+String[] getParameterValues
+(String name)
+Returns an array of values for the
+specified input parameter name,
+or null, if no values exist. Useful
+in the case of parameters that can have
+multiple values (the HTTP checkbox
+element, for example).
+
+String getProtocol() Returns the name and version of the
+protocol used by this request.
+
+String getScheme() Returns the substring of the request
+URL up to, but not including, the first
+colon (http, for example).
+String getServerName() Returns the host name of the server
+processing the request.
+int getServerPort() Returns the port number on which the
+receiving host is listening.
+
+BufferedReader getReader()
+throws IOException
+Returns a character reader for input
+data associated with this request. Either
+this method or getInputStream()
+may be called, but not both.
+
+String getRemoteAddr() Returns the numeric IP address of the
+client host.
+
+String getRemoteHost() Returns the name of the client host,
+if known.
+
+void setAttribute
+(String name, Object obj)
+Stores a reference to the specified object
+in the request under the specified name.
+
+void remoteAttribute
+(String name)
+Removes the specified attribute from
+the request.
+Locale getLocale() Returns the client’s preferred locale,
+if known, else null.
+
+Enumeration getLocales() Returns an Enumeration of the
+client’s preferred locales, if known;
+otherwise, returns the server’s
+preferred locale.
+boolean isSecure() Returns true if the request was made
+using a secure channel, such as HTTPS.
+
+RequestDispatcher
+getRequestDispatcher
+(String name)
+Returns a RequestDispatcher object
+for the specified resource name. See
+Chapter 8 for details about request
+dispatching.
+----------------------------------------------
+
+The HttpServletRequest subinterface contains the following methods:
+
+Reading	and writing HTTP headers
+Getting and Setting cookies
+Getting path information
+Identifying the HTTP session 
+
+String getAuthType() If the servlet is protected by an
+authentication scheme, such as HTTP
+Basic Authentication, returns the
+name of the scheme.
+
+String getContextPath() Returns the prefix of the URI that
+designates the servlet context (Web
+application).
+
+Cookie[] getCookies() Returns an array of the cookies
+associated with this request.
+
+long getDateHeader
+(String name)
+A convenience version of
+getHeader() that converts
+its output to a long value suitable
+for constructing a Date object.
+
+String getHeader
+(String name)
+Returns the value of the specified
+HTTP header, if it was supplied
+with this request. The name is
+case-insensitive.
+
+Enumeration getHeaderNames() Returns an Enumeration of the names
+of all HTTP headers supplied with
+this request.
+
+Enumeration getHeaders
+(String name)
+Returns an Enumeration of the values
+of all HTTP headers of the specified
+type supplied with this request.
+Useful for headers that can have
+multiple values.
+
+int getIntHeader(String name) A convenience version of
+getHeader() that converts
+its output to an int value.
+
+String getMethod() Returns the HTTP request method
+(for example, GET, POST, and so forth).
+
+String getPathInfo() Returns any additional path
+information specified in the URL.
+
+String getPathTranslated() Returns any additional path
+information specified in the URL,
+translated into a real path.
+
+String getQueryString() Returns the query string—that portion
+of the URL following the “?”, if any.
+
+String getRemoteUser() Returns the name of the remote user,
+if the user has been authenticated,
+else null.
+
+String getRequestedSessionId() Returns the session ID returned by
+the client.
+
+String getRequestURI() Returns the portion of the URL
+beginning with “/” and the context,
+up to, but not including, any query
+string.
+
+String getServletPath() Returns the substring of the request
+URI that follows the context.
+
+HttpSession getSession() Convenience method that calls
+getSession(true).
+
+HttpSession getSession
+(boolean create)
+Returns the current HTTP session,
+creating a new one if one doesn’t exist
+and the create parameter is true.
+Principal getPrincipal() Returns a
+java.security.Principal
+object representing the current
+user if the user has been
+authenticated, else null.
+
+boolean
+isRequestedSessionIdFromCookie()
+Returns true if the requested session
+ID was supplied by a Cookie object,
+false otherwise.
+
+boolean
+isRequestedSessionIdFromURL()
+Returns true if the requested session
+ID was encoded in the request URL,
+false otherwise.
+boolean
+
+isRequestedSessionIdValid()
+Returns true if the session ID
+returned by the client is still valid.
+
+boolean isUserInRole
+(String role)
+Returns true if the currently
+authenticated user is associated with
+the specified role. Returns false if
+not, or if the user isn’t authenticated
+------------------------------------------------------------
+
+Servlet Response is to convey results generated by the client that made the request
+
+The methods available are:
+void flushBuffer() throws
+IOException
+
+Sends the contents of the output buffer
+to the client. Because HTTP requires
+headers to be sent before content,
+calling this method sends the status
+line and response headers, committing
+the request.
+
+int getBufferSize() Returns the buffer size used by the
+response, or 0 if buffering isn’t in effect.
+
+String getCharacterEncoding() Returns the name of the character
+encoding used for the response.
+Unless explicitly set otherwise,
+this corresponds to ISO-8859-1.
+
+Locale getLocale() Returns the locale used for the response.
+Unless modified with setLocale(),
+this defaults to the server’s locale.
+
+OutputStream getOutputStream()
+throws IOException
+Returns a stream that can be used to
+write binary output to be returned
+to the client. Either this method or
+getWriter() can be called, but
+not both.
+
+Writer getWriter() throws
+IOException
+Returns a character writer that can be
+used to write text output to be returned
+to the client. Either this method or
+getOutputStream() can be called,
+but not both.
+
+boolean isCommitted() Returns true if the status and response
+headers have already been sent back
+to the client. Setting headers in the
+response after it’s committed has
+no effect.
+
+void reset() Clears the output buffer as well as
+any response headers. Causes an
+IllegalStateException if the
+response has already been committed.
+
+void setBufferSize
+(int nBytes)
+Sets the minimum buffer size for the
+response. The actual buffer size may
+be larger and can be obtained by a call
+to getBufferSize(). If any output
+has already been written, this method
+throws an IllegalStateException.
+
+void setContentLength
+(int length)
+Sets the length of the content body.
+
+void setContentType
+(String type)
+Sets the content type. In HTTP servlets,
+this sets the Content-Type header.
+
+void setLocale
+(Locale locale)
+Sets the locale to be used in the response.
+In HTTP servlets, this may affect the
+Content-Type header value.
+---------------------------------------------------
+The HTTP-specific subinterface HttpServletResponse adds methods for
+manipulating the status code, status message, and response headers.
+
+void addCookie(Cookie cookie) Causes a Set-Cookie header to be
+added to the response.
+
+void addDateHeader
+(String name, long date)
+
+void setDateHeader
+(String name, long date)
+Convenience methods that add a
+response header with the specified
+name (or replace all headers of
+that name) using the specified date
+value. The long integer date value
+should be one suitable for the
+
+java.util.Date(long time)
+constructor.
+
+void setHeader(String name,
+String value)
+Sets a response header with the
+specified name and value.
+
+void setContentLength
+(int length)
+Sets the length of the content body.
+
+void setContentType
+(String type)
+Sets the content type. In HTTP servlets,
+this sets the Content-Type header.
+
+void setLocale
+(Locale locale)
+Sets the locale to be used in the response.
+In HTTP servlets, this may affect the
+Content-Type header value.
+
+void addIntHeader(String name,
+int value)
+
+void setIntHeader(String name,
+int value)
+Adds a response header with the
+specified name (or replaces all headers
+of that name) using the specified
+integer value.
+
+boolean containsHeader(String
+name)
+Returns true if the response already
+contains a header by this name.
+
+String
+encodeRedirectURL(String url)
+String encodeURL(String url)
+Adds the session ID to the URL unless
+the client is known to accept cookies.
+The first form should be called only
+for URLs intended to be used in
+sendRedirect(). Other URLs
+to be encoded should be passed to
+encodeURL() instead.
+void sendError(int status)
+void sendError(int status,
+String msg)
+Sets the response status code
+to the specified value (and,
+optionally, the status message).
+HttpServletResponse defines a
+complete set of integer constants for
+the valid status values.
+void setStatus(int status) Sets the response status code to the
+specified value. Should only be used
+for responses that don’t indicate an
+error. Error responses should use
+sendError() instead.
+
+----------------------------------------------------------------
+
+JSP-Java Servlet Pages
+-------------------------
+It is a template for a Web Page that uses java code to generate an HTML document dynamically.
+JSPs are run in a server-side component known as JSP-container which translates them into equivalent Java Servlets
+
+How JSP works:
+
+JSP Source code:
+
+This is the form the developer writes, it exists in a text file with extension .jsp and consists of a mix of HTML templte code and Java language statements, and JSP directives and actions that describe how to generate a Web Page to service a particular request.
+
+Java source code:
+
+The JSP container translates the JSP source code into a source code for an equivalent java servlet as needed.This codeis typically saved in a workspace and is often helpful for debugging.
+
+Compiled Java Class:
+
+Like any other Java class, the generated class file is converted into byte codes  ready to be loaded and executed.
+
+Components of JSP page:
+
+There are three types of JSP elements:
+
+Directives,
+Scripting Elements, including expressions, scriplets and declarations
+Actions
+
+Directives:
+
+Instructions to the JSP container that describe what code should be generated.
+
+<%@ directive-name [attribute="value" attribute="value" ...] %>
+
+Three standard directives:
+page,include,taglib
+
+The page driective is used to specify attributes for the JSP page as the whole:
+
+<%@ page [attribute="value" attribute="value" ...] %>
+
+The include file directive merges the contents of another file at the translation time into the .jsp source outpur stream.
+
+<%@ include file="filename" %>
+
+The taglib directive makes custom actions available in the current page through the use of the tag library
+
+
+Expressions
+JSP provides the simple means to access the varibales of java 
+<%=exp%>
+
+Scriplets
+
+A scriplet is a set of one or more Java language statements intended to be used to process an HTTP request
+
+<% statement; [statement; ...] %>
+
+
+------------------------------------------------------
+Connecting to the Database using Java Swing
+
+Vector cache; // Will hold String[] objects
+int colCount;
+String[] headers;
+Connection db;
+Statement statement;
+String currentURL;
+public QueryTableModel( ) {
+cache = new Vector( );
+new gsl.sql.driv.Driver( );
+}
+public String getColumnName(int i) { return headers[i]; }
+public int getColumnCount( ) { return colCount; }
+public int getRowCount( ) { return cache.size( );}
+public Object getValueAt(int row, int col) {
+return ((String[])cache.elementAt(row))[col];
+}
+public void setHostURL(String url) {
+if (url.equals(currentURL)) {
+// Same database; we can leave the current connection open
+return;
+}
+// Oops . . . new connection required
+closeDB( );
+initDB(url);
+currentURL = url;
+}
+// All the real work happens here; in a real application, we'd probably perform the
+// query in a separate thread.
+This document was created by an unregistered ChmMagic, please go to http://www.bisenter.com to register it. Thanks
+public void setQuery(String q) {
+cache = new Vector( );
+try {
+// Execute the query and store the result set and its metadata.
+ResultSet rs = statement.executeQuery(q);
+ResultSetMetaData meta = rs.getMetaData( );
+colCount = meta.getColumnCount( );
+// Now we must rebuild the headers array with the new column names.
+headers = new String[colCount];
+for (int h=1; h <= colCount; h++) {
+headers[h-1] = meta.getColumnName(h);
+}
+// Now we must file the cache with the records from our query. This would not
+// be practical if we were expecting a few million records in response to our
+// query, but we aren't, so we can do this.
+while (rs.next( )) {
+String[] record = new String[colCount];
+for (int i=0; i < colCount; i++) {
+record[i] = rs.getString(i + 1);
+}
+cache.addElement(record);
+}
+fireTableChanged(null); // Notify everyone that we have a new table.
+}
+catch(Exception e) {
+cache = new Vector( ); // Blank it out and keep going.
+e.printStackTrace( );
+}
+}
+public void initDB(String url) {
+try {
+db = DriverManager.getConnection(url);
+statement = db.createStatement( );
+}
+catch(Exception e) {
+System.out.println("Could not initialize the database.");
+e.printStackTrace( );
+}
+}
+public void closeDB( ) {
+try {
+if (statement != null) { statement.close( ); }
+This document was created by an unregistered ChmMagic, please go to http://www.bisenter.com to register it. Thanks
+if (db != null) { db.close( ); }
+}
+catch(Exception e) {
+System.out.println("Could not close the current connection.");
+e.printStackTrace( );
+}
+}
+}
+------------------------------------------------------------------------------------------------------------------------------
+Techgig
+
+For this challenge, you need to take integer as input on one line which will tell number of array elements and array elements as an input on another line and find the majority number and print that number to the stdout. If not found return -1.
+
+
+(Majority Element: A majority element in an array A[] of size n is an element that appears more than n/2 times.)
+
+
+Input Format
+
+In this challenge, you will take number of elements as input on one line and array elements which are space separated as input on another line.
+
+
+Output Format
+
+You will print the majority number to the stdout.
+
+Sample Input
+
+9
+3 3 4 2 4 4 2 4 4
+
+Sample Output
+
+4
+----------------------------------------------------------------------------------------------------------------------------------
+
+Method of Calss object to be covered:
+
+boolean equals(Object obj)
+Decides whethter two objects meaningfully equivalent 
+
+void finalize()
+Called by the garbage collector sees the object cannot be refrenced
+
+int hashCode()
+Returns hashcode int value for an object so that object can be use in collection classes that use hashing, including HashTable,HashMap and HashSet
+
+final void notify()
+Wakes up a thread that is waiting for this object's lock
+
+final void notifyAll()
+Wakes up all the threads that is waiting for the object's lock
+
+final void wait()
+Causes the current thread to wait until another thread calls notify() or notifyAll on this object
+
+String toString()
+Return the text representation of the object
+
+Collections
+
+The core interfaces :
+
+Collection, Set, SortedSet
+List      , Map, SortedMap
+Queue	  , NavigableSet, NavigableMap
+
+
+Maps- HashMap, HashTable, TreeMap, LinkedHashMap
+Sets- HashSet, LinkedHashSet, TreeSet
+Lists- ArrayList, Vector, LinkedList
+Queues- PriorityQueue
+Utilities- Collections, Arrays
+
+Collection<Interface> - Set<Interface>,List<Interface>,Queue<Interface>
+
+Collections- Class with static utility methods 
+Collection- is an interface with declarations of methods common to most collections, add(),remove(),contains(),size(),iterator()
+
