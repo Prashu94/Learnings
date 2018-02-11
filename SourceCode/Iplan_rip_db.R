@@ -15,7 +15,7 @@ idf$END_DATE<- format(idf$END_DATE,"%d-%b-%Y")
 query1<-paste0("UPDATE rip_db SET PID='%s',SCP_ID='%s',SUB_ACTIVITY_NAME='%s',COMPLETION_PERCENT= %s,ACTUAL_EFFORT= %s,END_DATE= '%s',REMARKS= '%s',CLIENT= '%s',ENV= '%s',RCA= '%s'
           WHERE COMPLETION_PERCENT IS NULL AND END_DATE IS NULL")
 query2<-"commit"
-idf$PID[1]
+
 for(row in 1:nrow(idf)) {
   
   
