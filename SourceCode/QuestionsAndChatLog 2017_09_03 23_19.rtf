@@ -1,0 +1,239 @@
+{\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fswiss\fcharset0 MS Shell Dlg;}}
+{\colortbl ;\red0\green0\blue0;\red255\green255\blue255;\red121\green121\blue121;\red59\green182\blue60;}
+\viewkind4\uc1\pard\cf1\b\f0\fs17 Questions/Chat Log   G:\\extra things\\Knowledge\\practice\\RP\\SourceCode\\QuestionsAndChatLog 2017_09_03 23_19.rtf\b0\par
+\cf2\par
+\cf3 Q: yes Mam\cf2\par
+\par
+\cf4\b deepti (to All - Entire Audience)\b0 : \cf1 8:41 PM: https://drive.google.com/open?id=0B2KAHuH2XUCXbG13MzdLb3pUTEU\cf2\par
+\cf4\b deepti (to All - Entire Audience)\b0 : \cf1 8:43 PM: https://drive.google.com/open?id=0B2KAHuH2XUCXbG13MzdLb3pUTEU\cf2\par
+\cf4\b deepti (to All - Entire Audience)\b0 : \cf1 8:43 PM: https://drive.google.com/open?id=0B2KAHuH2XUCXTUp4eExyMC1EVUU\cf2\par
+\cf3 Q: Contians names of victims birth and detah rates of victims\cf2\par
+\par
+\cf3 Q: yes but first we need to clean the data as we do not require the percent sign, and the column names are below\cf2\par
+\par
+\cf3 Q: nope, we need to do text to coulmns and save it as .csv format and bring the columns names up\cf2\par
+\par
+\cf4\b deepti (to All - Entire Audience)\b0 : \cf1 8:55 PM: data1 <-readLines("C:/Users/dopelord/Desktop/data/victims.txt")\cf2\par
+\cf3 Q: done\cf2\par
+\par
+\cf4\b deepti (to All - Entire Audience)\b0 : \cf1 9:00 PM: #to do the string manipulation that read the data start from % and give true if it \par
+# meet the matching pattern else false\par
+\par
+comment <- grepl("^%",data1)\par
+\par
+comment\cf2\par
+\cf3 Q: done\cf2\par
+\par
+\cf4\b deepti (to All - Entire Audience)\b0 : \cf1 9:05 PM: data1 <-readLines("C:/Users/dopelord/Desktop/data/victims.txt")\par
+\par
+#to do the string manipulation that read the data start from % and give true if it \par
+# meet the matching pattern else false\par
+\par
+comment <- grepl("^%",data1)\par
+\par
+comment\par
+\cf2\par
+\cf4\b deepti (to All - Entire Audience)\b0 : \cf1 9:07 PM: https://drive.google.com/open?id=0B2KAHuH2XUCXbG13MzdLb3pUTEU\cf2\par
+\cf4\b deepti (to All - Entire Audience)\b0 : \cf1 9:07 PM: data1 <-readLines("C:/Users/dopelord/Desktop/data/victims.txt")\par
+\par
+#to do the string manipulation that read the data start from % and give true if it \par
+# meet the matching pattern else false\par
+\par
+comment <- grepl("^%",data1)\par
+\par
+comment\cf2\par
+\cf4\b deepti (to All - Entire Audience)\b0 : \cf1 9:09 PM: # To remove the comments from the data\par
+text<-data1[!comment]\par
+\par
+text\cf2\par
+\cf4\b deepti (to All - Entire Audience)\b0 : \cf1 9:17 PM: #accept caharter vector and a split argument tell strsplit to split the string into substring\par
+splitlines<- strsplit(text,split = ",")\par
+splitlines\cf2\par
+\cf4\b deepti (to All - Entire Audience)\b0 : \cf1 9:25 PM: #to c0py elemt into matrix :unlist concatenates all the vec in  alist into one large character vector\par
+lines<- matrix(unlist(splitlines),nrow = length(splitlines),byrow = TRUE)\par
+lines\cf2\par
+\cf3 Q: done\cf2\par
+\par
+\cf4\b deepti (to All - Entire Audience)\b0 : \cf1 9:31 PM: #to create the column names\par
+colnames(lines) <- c("Name","Birthyear","Deathyear")\par
+colnames(lines)\par
+\par
+\cf2\par
+\cf3 Q: done\cf2\par
+\par
+\cf4\b deepti (to All - Entire Audience)\b0 : \cf1 9:46 PM: #to coerce the matrix to a data frame: conversion of var from one type to anoather is known as coercion\par
+# as.dataframe is used to convert into dataframe ,as.numreric used to coerce to numeric type\par
+\par
+tit<- as.data.frame(lines,stringAsFactors = FALSE)\par
+tit\cf2\par
+\cf4\b deepti (to All - Entire Audience)\b0 : \cf1 9:52 PM: #to coerce into the numeric data: \par
+\par
+\par
+tit1 <-transform (tit,\par
+                  Birthyear = as.numeric(as.character(Birthyear), \par
+                                         Deathyear = as.numeric(as.character(Deathyear))) # if birthyear is a factor so we need to convert first into character and then numeric\par
+)\par
+\par
+\par
+tit1\par
+\par
+str(tit1)\cf2\par
+\cf3 Q: mean function is numeric method\cf2\par
+\par
+\cf3 Q: yes, mean(data_titanic$Birth_Year,na.rm = T)\cf2\par
+\par
+\cf3 Q: 1882.667\cf2\par
+\par
+\cf4\b deepti (to All - Entire Audience)\b0 : \cf1 10:03 PM: data1 <-readLines("C:/Users/dopelord/Desktop/data/victims.txt")\par
+\par
+#to do the string manipulation that read the data start from % and give true if it \par
+# meet the matching pattern else false\par
+\par
+comment <- grepl("^%",data1)\par
+\par
+comment\par
+\par
+\par
+# To remove the comments from the data\par
+text<-data1[!comment]\par
+\par
+text\par
+\par
+#accept caharter vector and a split argument tell strsplit to split the string into substring\par
+splitlines<- strsplit(text,split = ",")\par
+splitlines\par
+\par
+\par
+\par
+\par
+#to c0py elemt into matrix :unlist concatenates all the vec in  alist into one large character vector\par
+lines<- matrix(unlist(splitlines),nrow = length(splitlines),byrow = TRUE)\par
+lines\par
+\par
+#to create the column names\par
+colnames(lines) <- c("Name","Birthyear","Deathyear")\par
+colnames(lines)\par
+\par
+#to coerce the matrix to a data frame: conversion of var from one type to anoather is known as coercion\par
+# as.dataframe is used to convert into dataframe ,as.numreric used to coerce to numeric type\par
+\par
+tit<- as.data.frame(lines,stringAsFactors = FALSE)\par
+tit\par
+\par
+str(tit)\par
+\par
+#to coerce into the numeric data:\cf2\par
+\cf4\b deepti (to All - Entire Audience)\b0 : \cf1 10:03 PM: #to coerce into the numeric data: \par
+\par
+\par
+tit1 <-transform (tit,\par
+                  Birthyear = as.numeric(as.character(Birthyear), \par
+                                         Deathyear = as.numeric(as.character(Deathyear))) # if birthyear is a factor so we need to convert first into character and then numeric\par
+)\par
+\par
+\par
+tit1\par
+\par
+str(tit1)\par
+\par
+\par
+#need to cal mean \par
+\par
+mean(tit1$Birthyear)\par
+\par
+round(mean(tit1$Birthyear))\cf2\par
+\cf3 Q: yes\cf2\par
+\par
+\cf3 Q: yes \cf2\par
+\par
+\cf3 Q: yes\cf2\par
+\par
+\cf4\b deepti (to All - Entire Audience)\b0 : \cf1 10:48 PM: DATA TYPES : \par
+\par
+1) VECTOR : ONE DIMENSIONAL : SAME DATA .... (NUMERIC , CHARACTER) \par
+\par
+A <- C( 1,2,5,8) - NUMERIC VECTOR \par
+\par
+B <- C ( "US","UK","INDIA") - CHARACTER VECTOR \par
+\par
+C < - C ( TRUE , FALSE , TRUE) - LOGICAL VECTOR \par
+\par
+D <- C( 1, "USA" ,"TRUE") : WRONG \par
+\par
+2) SCALAR : ONE ELEMENT VECTOR IS SCALAR : \par
+\par
+X <- (5) \par
+Y <- ("US")\par
+Z<- (FALSE)\par
+\par
+\cf2\par
+\cf4\b deepti (to All - Entire Audience)\b0 : \cf1 10:51 PM: 3) MATRIX : TWO DIMENSIONAL : SAME DATA :\par
+\par
+ROWS : 1, : 2, \par
+COLUMNS : ,1 : ,2 \par
+\par
+BY DEFAULT MATRIX : COLUMNWISE \par
+\par
+IN CASE YOU WNAT TO DISPLAY DATA IN MATRIX ROWWISE ADD BY ROW = TRUE IN YOUR COMMAND ...\par
+\par
+EX : \par
+\par
+   ,1    ,2\par
+1, 4   8\par
+2, 7   9 \par
+\cf2\par
+\cf3 Q: yes\cf2\par
+\par
+\cf4\b deepti (to All - Entire Audience)\b0 : \cf1 10:53 PM: ARRAY : MULTI DIMENSIONAL : SAME DATA \par
+\par
+DIM : DIMEMENSION : (R,C,M) ROW , COLUMN , ,MATRIX :\par
+\par
+     ,1   ,2   ,3 , 4 \par
+1,  2     4   6    8\par
+2,  10  12  14  16 \par
+\cf2\par
+\cf3 Q: opened\cf2\par
+\par
+\cf4\b deepti (to All - Entire Audience)\b0 : \cf1 11:02 PM: # vECTORS - ONE DIMENSIONAL ARRAYS ARE KNOWN AS VECTORS\par
+\par
+a<-c (1,2,5,3,6,-2,4)\par
+\par
+b<-c ("one","two","three")\par
+\par
+c<- c(TRUE,TRUE,TRUE,FALSE,TRUE,FALSE)\cf2\par
+\cf3 Q: done\cf2\par
+\par
+\cf4\b deepti (to All - Entire Audience)\b0 : \cf1 11:04 PM: #accessing vector elements\par
+vec<-c("a","b","c","d","e")\par
+vec[1]\par
+vec[c(1,5)]\par
+\cf2\par
+\cf3 Q: done\cf2\par
+\par
+\cf4\b deepti (to All - Entire Audience)\b0 : \cf1 11:06 PM: #SCALARS - THESE ARE ONE ELEMENT VECTOR\par
+f <- 3\par
+g<-"us"\par
+h<- TRUE\cf2\par
+\cf3 Q: done\cf2\par
+\par
+\cf4\b deepti (to All - Entire Audience)\b0 : \cf1 11:11 PM: #matrices - these are two dimensional data structrures\par
+\par
+vector <- c(1,2,3,4)\par
+f00 <- matrix(vector,nrow=2,ncol=2,byrow = TRUE)# if true matrix filed by rows\par
+f00\par
+\par
+f001 <- matrix(vector,nrow=2,ncol=2)# bydefault filed by column \par
+\par
+f001\cf2\par
+\cf3 Q: columnwise\cf2\par
+\par
+\cf4\b deepti (to All - Entire Audience)\b0 : \cf1 11:17 PM: #Accessing matrix elemtss\par
+mat <- matrix(c(1:4),nrow=2,ncol=2)\par
+mat\par
+mat[1,] # returns the first row in matrix\par
+mat[,1] #returns the first col in matrix\par
+mat[1,2] # returns the elements in the first row of second column\cf2\par
+\cf3 Q: done\cf2\par
+\cf0\par
+}
+ 

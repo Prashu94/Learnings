@@ -1,0 +1,758 @@
+
+9:04 PM: INTRODUCTION TO DATA ANALYTICS : 
+
+1) GROUND RULES FOR ONLINE TRAINING SESSIONS :
+
+1) ATTEND SESSION ON TIME : 8.30 PM IST : 
+
+2) ATTEND SESSION DAILY IF IT IS NOT THAT URGENT TO TAKE LEAVE ......
+
+3) PLEASE BE INTERACTIVE .......
+
+4) SUBMIT THE FEEDBACK .....
+
+1) WHAT IS ANALYTICS : 
+
+WITHDRAW + INSIGHTS + RAWDATA : 
+
+WHY ANALYTICS ? 
+
+1) TO INCREASE THE BISINESS REVENUE : 
+
+2) TO DECREASE THE OPERATION COST : 
+
+A : BR : 10MIL  OC : 7MIL : 3 MIL
+B :  BR : 9MIL  OC : 3MIL : 6MIL WHICH INDUSTRY IS PERFORMING BETTER ? 
+
+
+
+
+TYPE OF ANALYTICS:
+1)Descriptive
+2)Predictive
+3)Prescription
+
+TYPES OF DATA:
+
+STRUCTURED DATA
+UNSTRUCTURED DATA
+
+LIFECYCLE OF DATA:
+
+1.DATA COLLECTION.
+2.DATA CLEANING.
+3.DATA UNDERSTANDING.
+4.DATA ANALYSIS.
+5.DATA MODELLING.
+
+.LINEAR REGRESSION
+.LOGISTIC REGRESSION
+.CLUSTER ANALYSIS
+.DECISION TREE.
+.MARKET BASKET ANALYSIS.
+.SENTIMENT ANALYSIS
+.ANOVA
+.IMPLEMENTATION
+.RESULT:
+
+BASIC STATISTICS:
+
+MEAN,
+VARIANCE,
+STD DEVIATION.
+MODE,
+FREQUENCY,
+HYPOTHESIS,
+LEVEL OF SIGNIFICANCE,
+ALTERNATIVE HYPOTHESIS,
+LEFT SKEWED,
+RIGHT SKEWED,SYMMETRICAL,
+NULL HYPOTHESIS,
+ORDINAL,
+NOMINAL,
+DISCRETE,
+CONTINUOUS,
+
+BASIC STATISTICS KNOWLEDGE : 
+
+MEAN , MEDIAN , MODE , FREQUENCY , SD , VARIANCE , SE , ZTEST , TTEST , P VALUES , LEVEL OF SIGNIFICANCE,
+HYPOTHESIS , NULL HYPOTHESIS , ALTERNATE HYPOTHESIS , NOMINAL , ORDINAL , INTERVAL , RANGE , DISCRETE 
+CONTINOUS , BINARY , NORMAL DISTRIBUTION , LEFT SKEWED , RIGHT SKEWED : 
+
+------------------------------------------------------
+ANALYTICAL TOOLS:
+
+R,SAS,RAPIDMINER,PYTHON.
+
+R AND SAS MARKET LEADER IN ANALYTICS.
+
+Difference between R and SAS.
+
+R: Programming tool for statistical analysis.
+
+SAS: Is a programming LAN, and used for doing statistical analysis.
+
+ROLE OF ANLAYTICS IN INDUSTRIES:
+--------------------------------
+
+CUSTOMER ANALYTICS:
+
+Customer Retention,
+Customer Satisfaction,
+Customer choices
+
+
+HR ANALYTICS: 
+
+Trainee Progress,
+Resource Handling
+
+Healthcare Analytics:
+
+Classifying patients medicine according to the symptoms.
+Waiting cycle for patient
+Operational costs
+Patient satisfaction
+Disease CAlssification
+
+Supply Chain Analytics:
+
+Average no.of goods passing through supply chain
+Inventory 
+
+Web Analytics:
+
+Text Mining.
+Word Clouds,
+Frequent Searches
+Click Anlaysis,
+Frequent visits of websites,
+Recommendation.
+
+------------------------------
+CAREER IN ANALYTICS : 
+
+1) DATA ANALYST 
+2) CONSULTANT OR STATISTICAL  MODELER 
+3) SME OR DATA SCIENTIST 
+
+SALARY : 2017 DS : 120K USD : 
+
+12 - 13 LK : RS 
+
+ANALYTICAL TOOLS : 
+
+R , SAS , SPSS , MINITAB , STATISTICA , WATSON , RAPIDMINER , PYTHON  ETC .....
+
+R AND SAS IS THE MARKET LEADER IN ANALYTICS :
+
+
+DIFFERENCE BETWEEN R AND SAS TOOL 
+
+R : IS A PROGRAMMING LANG AND THIS TOOL IS USED FOR DOING STATISTICAL ANALYSIS : 
+
+IT IS OPEN SOURCE TOOL : 
+
+SAS : IS A PROGRAMMING LAN  AND USED FOR DOING STATISTICAL ANALYSIS ...
+
+IT IS PAID TOOL OR LICENCE TOOL ...
+
+-----------------------------------
+
+
+------------------------------------------------------------
+
+AIRLINE INDUSTRY:
+
+DESCRIPTIVE : Number of Flyers an Airline is getting in a month, the average revenue generation for an airline.
+
+PREDECTIVE : How many airline can have frequent flyers?,
+
+PRESCRIPTIVE : How Services can be improved for a particular airline to increase flyers?
+
+
+----------------------------------------
+Webinar 3
+-----------------------------------------
+
+DATA MANIPULATION
+-------------------
+1.HOW YOU CAN KEEP IMPORTANT VARIABLES IN YOUR DATA?
+2.HOW YOU CAN KEEP IMPORTANT VARIABLE IN YOUR DATA?
+3.HOW TO RENAME VARIBALE NAME IN YOUR DATA?
+4.HOW TO SORT DATA IN ASCENDING OR DESCENDING ORDER?
+5.HOW YOU CAN CREATE NEW VARIABE FROM OLD VARIABLE IN YOUR DATA?
+6.HOW YOU CAN SUBSET THE DATA?
+7.HOW YOU CAN APPLY IF/ELSE CONDITION IN YOUR DATA?
+8.HOW YOU CAN APPLY AND OR OPERATORS IN YOUR DATA?
+9.HOW YOU CAN CREATE DUMMY VARIABLE IN YOUR DATA?
+---------------------------------------------------------
+Whenever you create a new variable that will be created at the end of the data.
+
+
+
+-----------------------------------------------
+Webinar 4
+----------------------------------------------
+
+CASE STUDY:
+
+TITANIC VICITM DATASET
+
+Contians names of victims birth and detah rates of victims
+
+REading text files and cleaning the text file
+titanic_data<- readLines("G:/extra things/Knowledge/practice/RP/datasets/victims.txt")
+#grepl function 
+comment<- grepl("^%",titanic_data)
+comment
+data_1<-titanic_data[!comment]
+
+#accept caharter vector and a split argument tell strsplit to split the string into substring
+splitlines<- strsplit(data_1,split = ",")
+splitlines
+
+#to c0py elemt into matrix :unlist concatenates all the vec in  alist into one large character vector
+lines<-matrix(unlist(splitlines),nrow=length(splitlines),byrow=TRUE)
+lines
+
+#to create column names
+colnames(lines)<-c("Name","Birth_Year","Death_Year")
+colnames(lines)
+
+#converting the matrix into data_frame
+#coercion of one type to another type
+data_titanic<-as.data.frame(lines,stringsAsFactors = F)
+
+cannot have heterogenous data in matrix
+
+
+Chats:
+
+10:48 PM: DATA TYPES : 
+
+1) VECTOR : ONE DIMENSIONAL : SAME DATA .... (NUMERIC , CHARACTER) 
+
+A <- C( 1,2,5,8) - NUMERIC VECTOR 
+
+B <- C ( "US","UK","INDIA") - CHARACTER VECTOR 
+
+C < - C ( TRUE , FALSE , TRUE) - LOGICAL VECTOR 
+
+D <- C( 1, "USA" ,"TRUE") : WRONG 
+
+2) SCALAR : ONE ELEMENT VECTOR IS SCALAR : 
+
+X <- (5) 
+Y <- ("US")
+Z<- (FALSE)
+
+
+
+
+
+deepti (to All - Entire Audience):
+
+10:51 PM: 3) MATRIX : TWO DIMENSIONAL : SAME DATA :
+
+ROWS : 1, : 2, 
+COLUMNS : ,1 : ,2 
+
+BY DEFAULT MATRIX : COLUMNWISE 
+
+IN CASE YOU WNAT TO DISPLAY DATA IN MATRIX ROWWISE ADD BY ROW = TRUE IN YOUR COMMAND ...
+
+EX : 
+
+   ,1    ,2
+1, 4   8
+2, 7   9 
+
+10:53 PM: ARRAY : MULTI DIMENSIONAL : SAME DATA 
+
+DIM : DIMEMENSION : (R,C,M) ROW , COLUMN , ,MATRIX :
+
+     ,1   ,2   ,3 , 4 
+1,  2     4   6    8
+2,  10  12  14  16
+
+list: heterogeneous data
+
+Write down one page describing the role of analytics in telecom industry-done
+Create 15 variable and 3 observations-done
+
+------------------------------------------------
+Webinar 5
+---------------------------------------------------
+MERGING AND APPENDING THE DATASETS ?
+
+WHAT IS APPENDING ? 
+
+COMBINING DATASETS , WHEN ALL THE COL NAMES AND COL NO ARE SIMILAR TO ALL THE DATA SETS ...
+
+RBIND FUNCTION : TO APPEND DATASET : 
+
+EX : 
+
+DATASET A 
+
+CUS NAME    AGE    INCOME 
+DEEPTI        30        10000
+AMIT      29       20000
+SUMIT     31       30000
+
+DATASET B 
+
+CUS NAME    AGE    INCOME 
+RIYA      25           5000
+SMITA    34          50000
+MOHAN     31        40000
+
+
+MERGING : COMBINING THE DATASETS WITH PRIMARY KEY .
+
+CONDITONS : THERE MUST BE PRIMARY KET IN ALL DATSETS 
+VAR NAME IN ALL DATASETS MUST BE DIFFERENT .
+
+MERGE : R 
+
+EX : DATASET A 
+
+CUSID   CUS NAME  AGE 
+1001   DEEPTI   30 
+1002   AMIT   29
+
+DATASET B 
+CUSID  CUS ADD CUS INCOME  STATUS
+1001   BOSTON   10000         MARRIED
+1002   SINGAPORE  30000    SINGLE 
+
+MASTER DATSET : 
+CUSID  CUS NAME   AGE   CUS ADD   CUS INCOME   STATUS
+1001   DEEPTI   30        BOSTON      10000        MARRIED
+1002    AMIT    29      SINGAPORE    30000       SINGLE 
+
+AFTER MERGING , VAR NO IS INCREASED AND OBS NO IS SAME .
+
+Plasma Glucose concentration in pregnat women
+
+Different import techniques used in R
+1. CSV
+2. Text
+3. Excel
+4. XML
+5. SPSS
+6. Web Scrapping
+7.Connect with Orcale server
+
+DATA6<-odbcConnectAccess("{Microsoft Access Driver(*.mdb,*.accdb)};Dbq= D:\\Database2.mdb")
+
+emp1 < sqlFetch(DATA6,"Table1")
+emp1
+
+emp2<-sqlQuery(DATA6,"select * from Table1")
+emp2
+
+
+Involvement of Analytics in Telecom Sector
+Analytics plays a major role in Telecom Sector. Following are the major areas where analytics is used: - 
+1. Increased Sales
+2. Reduce Churn & Fraud
+3. Improve Risk Management
+4. Decrease Operational Cost
+a. ROI Optimization 
+b. Increasing Call Centre Efficiency 
+c. Cell Site Optimization 
+d. H.R. - Employee Engagement
+e. Deriving Channel Sales Targets
+f. Spend Analysis and Optimization
+g. Product Segmentation 
+i. Pre Paid Plans 
+1. Recharges
+2. STV
+ii. Post Paid Plans
+1. Fixed Rental Plans
+2. Subscription Packs
+5. Analyses customer Loyalty and Wallet share
+6. Social Analytics :- Branding of Telecom Operations on Social Media
+a. Customer Sentiment Analysis
+b. Customer Experience
+c. Positioning of the company to make customer experience richer and smoother
+
+----------------------------------------------------------------------------------
+Webinar 6
+-------------------------------
+Data Visualization: 
+The graphical representation of data
+Easy to understand and easy to interpretate
+Who uses data visulaization?
+CEO,Top Management
+
+Bar Graph:Used for categorical data
+Stacked Bar Graph:Above one another
+Group Bar Graph: Beside each other
+Pie chart: Proportional representaion of data
+Line chart: When data changes over a period of time, it is represented in line chart
+Box Plot:
+Scatter Plot:
+Corrgram: REpresents the strong correlation, and weak correlation
+
+Postive Correlation. Negative Correlation, Neutral Correlation
+--------------------------------------------
+Madam Notes:
+
+
+DATA VISUALIZATION : 
+
+GRAPHICAL REPRESENTAION OF DATA ..
+
+WHY DV ? 
+
+IT IS EASY TO UNDERSTNAD AND EASY TO INTERPRETATE 
+
+WHO ARE THE PEOPLE WHO PREFER DV ? 
+
+TOP MGMT , CEO , CFO , BOD , SM , VP ETC ......
+
+1) BAR GRAPH : BAR GRAPHS IS USED FOR CATEGORICAL DATA , IT IS USED FOR COMPARISON .
+2) STACKED BAR GARPH : MORE THAN ONE VAR WILL BE REPRESENTED IN GRAPH  , AND THE GRPAH IS DISPLAYED AS ONE ABOVE THE OTHER .
+3) GROUPED BAR GRAPH : MORE THAN ONE VAR , BESIDE EACH  OTHER ...
+4) PIE CHART : PROPORTIONAL REP OF DATA .... OR CIRCULAR REPRESENTATION.
+5) 3D DIMENSIONLA PIE CHART : IT IS IN 3 DIMENSIONAl FORM .
+6) LINE CHART : WHEN DATA CHANGES OVER A PERIOD OF TIME , IT IS REPRESENTED IN LINE CHART .
+7) HISTOGRAM : IT IS USED FOR QUANTITATIVE DATA ANS IT DISPLAYS DISTRIBUTION OF DATA .
+8) BOX PLOT  OR  WHISKER : IT DISPLAY THE SUMMARY OF DATA : .IKE MEAN , MEDIAN , MIN , MAX , IQUARTILE , 3QUARTILE
+9) SCATTER PLOT : IT IS USED TO SHOW THE RELATIONSHIP BET TWO VAR ....
+10) CORRGRAM:  IT REPRESEMTS THE CORRELATI
+-Dark Blue Color->Strong +ve corr
+-Light Blue Color->Weak +ve corr
+-DArk Red Color->Strong -ve corr
+-Light Red Color->Weak -ve corr
+
+Positive correlation: Directly proportional, One variable increase the other variable also increases.
+Negative correlation: Indirect Proportion
+Neutral Correlation: Variables are independent
+
+Strong Correlation: >50
+Weak Correlation: <50
+
+library(dplyr)
+data_mt<-mtcars
+counts<- table(data_mt$gear)
+barplot(counts)
+barplot(counts,horiz=TRUE)
+
+-----------------------------------
+Webinar 7
+----------------------------------
+Predctive Modelling
+----------------------------------
+
+1. What is predictive modelling?
+----------------------------------
+Predict the outcome of the next events using the historical data
+
+i.Supervised Learning: There is dependent variable present in the data and you can do the prediccation.
+Example: Linear Regression, Logistic Regression, Decison Tree, Random Forest.
+ii.Unsupervised Learning: There is no dependent variable present in the data, hence we need to find the pattern and segment the data.
+Example: Cluster Anlaysis, Market Basket Anlaysis, Associative Anlaysis.
+
+Dependent Variable: What we are predicting
+Independent variable: Estimator variable, helps in predicting the dependent variable
+
+Example: 
+---------------------------------
+Linear Regression:
+
+Used to establish the relationship between the dependent and independent variable
+i.Simple Linear Regression: One dependent variable and one independent variable
+ii.Multiple Linear Regression: One dependent variable and more than one independent variable
+
+Project: Real Estate :
+BP: To predict the selling proce of the house
+BS: To build the linear regression
+
+Advertising data set: 
+
+Input Varaible/Independent variable: TV, radio, newspaper(budgets)
+Ouput Variable: Sales
+
+Y=f(x) +c
+
+x=(x1,x2,x3,x4,...,xp)
+
+We need to estimate the function variable as it helps to estimate the varibales good for predication
+
+This can be done through Y1=f(x)1+e
+
+The accuracy of Y1 as a prediction for Y depends on two quantiles:
+reducible error 
+irreducible error
+
+
+In general f1 cannot be a perfect estimat of f and this inaccuracy will introduce some error which is called as reducible error 
+
+Y1=f(x)1
+
+E(Y-Y1)^2= E[f(x) + e - f(x)1]^2
+	 = [f(x) - f(x)1]^2 +Var(e)
+[f(x) - f(x)1]^2= Reduible Error
+Var(e)= Irreducible Error
+E(Y-Y1)^2= Represents the average or expected value-Variance
+
+Aim: of the above is to minimize the reducible error
+
+Parametric Method:
+1.Assumption about the functional form
+
+f(x)= B0+B1X1+B2X2+....+BPXP
+
+2.Once we have assumed the f is linear we need a procedure that use the training data to fit or train the model
+Here we need to estimate the parameters B0,B1,....,BP i.e
+We need tho find the value of these poarameters such that 
+Y ~ B0+B1X1+B2X2+...+BPXP
+
+The most common approach to fit the model is referrd to as Least Squared Value
+
+For Example:
+
+income = B0 +B1 * Education+ B2 * Seniority
+
+Non-Parametric Method:
+
+
+
+
+
+-------------------------------------------
+Instructor notes:
+When Dependent variable is continous then linear regression
+
+Multiple Linear REgression:
+Y=B0+B1X1+B2X2+B3X3+BBXXN+Error
+
+Y=Dependent Variable:Selling Price of the house
+B0=Intercept
+B1=Slope for X1(X1 is first independent variable)
+X1=First independent variable(LSP)
+X2=Second Independent VAriable(Bo of bathroom)
+X3=Third Indpenedent Variable(Area of Site)
+
+Model Interpretation:
+
+1.Look at the p-values
+2.pvalues< 0.05 all those variable are significant 
+3.(Estimate column)Look at the slope of the significant variable
+4.Establish the relationship between significant varibale and dependent variable 
+5.Look at the square values
+Cut off RSQ value is 70%
+RSQ:  Model A :RSQ:95%
+Model B: RSQ -50%
+Adjusted RSQ value < RSQ
+
+
+It means that 95% of the selling price of the house is explained by xyz independent variable
+size of the living space
+
+sellingprice and the predictied selling price
+error = sellingprice-predicted selling price
+
+-ve -profit
+
+Logistic Regression Model:
+
+When dependent varibale is binary(TRUE/FALSE) then use this model
+
+i.e if we want the output in TRUE or FALSE then use this
+
+Project: Health Care
+
+BP: To predict the probability of the cancer remission in the patients
+BS: To build logistic regression model
+
+Logistic Regression Equation:
+
+LOG(P/1-P)= B0+B1X1+B2X2+B3X3+.....+BPXP
+LOG(P/1-P)=Logit Function/Odd Ratio
+Odd Ratio- Probability of the occurance of the events/ Prob of the occurence of the non events.
+
+X1-CELL
+X2-SMEAR
+
+Model Building:
+
+GLM
+
+Model Interpretation:
+
+1.Look at the p-values
+2.pvalues< 0.05 all those variable are significant 
+3.(Estimate column)Look at the slope of the significant variable
+4.Establish the relationship between significant varibale and dependent variable 
+5.Look at the AIC values
+AIC: AKAIKES INFORMATION CRITERIA
+
+Lower is the AIC value better is the quality of the model
+Model A: AIC- 7890 
+Model B: AIC- 135 
+
+Model B is better
+
+
+Binomial function is used
+p q=1-p
+
+Madam Also kindly share the datasets shared in the previous session as I had missed it. 
+-------------------------------------------------------
+Webinar 8
+---------------------------------------------------
+
+Random forest is the best model
+
+Decison Tree Model:
+
+A decision tree is a treelike graph where you have different nodes like root nodes, branch and leaf nodes.
+
+This decision tree is used to illustrate every possible outcome of a decision.
+
+1.Root node:-  
+2.Branch Node:-  
+3.Leaf Node:-Result
+
+Dependent Variable: Binary or Dichotomous
+Independent VAriable: Binary of Continous
+
+Advantage of Decision Tree:
+
+1: It is easy to understand and interpretate
+2: High Accuracy
+3: Little Effort for DP(Data Preparation) when it is a decision tree.
+
+Instructor Notes:
+
+
+WHTA IS DT ? 
+
+DECISION TREE IS A TREE LIKE GRAPH WHERE YOU HAVE DIFFERENT NODES LIKE ROOT NODES , BRANCH  AND LEAF . 
+
+THIS DECISION TREE IS USED TO ILLUSTRATE EVERY POSSIBLE OUTCOME OF A DECISION . 
+
+1) ROOT NODE : 
+
+2) BRANCH NODE : 
+
+3) LEAF NODE : 
+
+DEP VAR : BINARY OR DICHOTOMOUS : 
+INDEP VAR : BINARY , CONTINOUS ETC : 
+
+ADVANTAGE OF DT : 
+
+1) IT IS EASY TO UNDERSTAND AND INTERPRETATE ..
+
+2) HIGH ACCURACY 
+
+3) LITTLE EFFORT FOR DP WHEN IT IS DECISION TREE 
+
+76 : 78 : 80 
+
+
+
+
+deepti (to All - Entire Audience):
+
+9:09 PM: SPLITTING DATASETS INTO TWO PARTS : 
+
+1) TRAINING DATASET : BUILDING THE MODEL 
+
+2) VALIDATION DATASET OR TESTING DATASET :TO VALIDATE OR TEST THE MODEL ....
+
+SPLIT RATIO : 70: 30 0R 60 : 40 
+
+70 : 30 : 70 % IS TDS AND 30 % IS VDS 
+
+60 : 40 : 60% IS TDS AND 40% IS VDS :
+
+
+Project : Telecom Sector
+BP: To predict customer churn
+BS: To Build Decision Tree
+
+
+
+Telecom Data for different states in the US with differnt parameters for analysis
+3 Categorical variables: International Plan, Voice Mail Plan, Churn
+Dependent variable: Churn
+Independent Variable:
+Voice Mail Plan
+Number of Customer Service Calls
+Number Of VoiceMail messages
+International Plan
+
+
+Statistical Methods:
+
+Information gain:
+
+I-E -> Entropy
+
+confusion matrix is used to find the performance of the model
+sum of diagonal correct classified/(sum of all)
+
+-------------------------------------------------------------
+Random Forest
+-------------------------------------------------------------
+When many decision tree combine togehter it is called as random forest
+
+Advantage of RF:
+1.Very high accurate model
+2.Select importnat variable from a huge dataset and then apply the model on only important varibable
+
+
+
+
+#Assignments:
+
+
+"HealthOne" - India's largest chain of hospitals has approached Aujas for its operational issues which the chain is facing recently. Based on the intial discussions, some of the problem area have been identified as major focus. Now, as a part of Aujas Consulting team you are required to come up with a plan on how these operational issues can be solved using data analytics. Here are few areas of conern to be focused:
+a). Infrastructure Costs: Work force cost, Equipment maintenance cost etc.
+b). Budget Constraint: Constrained budget has caused a delay in executing some of the expansion plans.
+c). Logistics on Medicines and clinical support
+d). No. of patients coming for treatment has remained constant for last two years
+What are the approaches using data analytics that you would like to recommend. What kind of information (data) you would ask for your approach?
+
+
+
+Student Scores:
+5 10 15 20 5 5 
+
+Mean: 
+Mode:
+Median:
+Std Deviation:
+Variance:
+Frequency:
+------------------------------------
+Apply function:
+
+If we have a structered blob of data to perform operation on, i.e array/matrix
+The operation may be informational or transforming, subsettting.
+
+Syntax:
+apply(m,1,mean)
+apply(m,2,function(x) length(x[x>0]))
+
+lapply- returns a list rather than a vector
+sapply- returns a vector 
+tapply- Apply a function to each cell of a ragged array, that is to each (non-empty) group of 
+values given by a unique combination of the levels of certain factors.
+
+
+
+
+Spend.Numeric                   0.001354   0.001027   1.319 0.187321
+Mens.Merchandise               -0.024683   0.230279  -0.107 0.914640
+Womens.Merchandise             -0.150276   0.230498  -0.652 0.514427
+Purchase.ChannelPhone           0.038226   0.236470   0.162 0.871579
+Purchase.ChannelWeb            -0.138352   0.239031  -0.579 0.562721
+Visited.Website                 3.622287   0.632240   5.729 1.01e-08
